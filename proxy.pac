@@ -4,7 +4,7 @@ const domainsList = [
   'medium.com',
   'youtube.com', 'googlevideo.com', 'ytimg.com', 'youtu.be', 'ggpht.com', 'youtubei.googleapis.com', 'sponsor.ajay.app',
   'jetbrains.com', 'intellij.net', 'jetbrains.ai', 'myjetbrains.com', 'jetbrains.com.cn', 'jetbrains.dev', 'jetbrains.net', 'jetbrains.org', 'jetbrains.space', 'jetbrains.ru', 'jb.gg',
-  'celestemods.com'
+  '0x0a.de', 'weg.fan', 'celestemods.com'
 ];
 
 const domains = new Set(domainsList);
