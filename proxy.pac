@@ -8,9 +8,17 @@ const domainsList = [
   'cloudfront.net'
 ];
 
+const ytDomainsList = [
+  'youtube.com','googlevideo.com', 'ytimg.com', 'youtu.be', 'ggpht.com', 'youtubei.googleapis.com', 'sponsor.ajay.app'
+];
+
 const domains = new Set(domainsList);
 
 const domainsWithDotPrefix = domainsList.map(domain => '.' + domain);
+
+const ytDomains = new Set(ytDomainsList);
+
+const ytDomainsWithDotPrefix = ytDomainsList.map(domain => '.' + domain);
 
 
 function FindProxyForURL(_, host) {
@@ -19,6 +27,12 @@ function FindProxyForURL(_, host) {
 
   if (useProxy) {
       return 'PROXY 192.168.0.252:18080; DIRECT';
+  }
+
+  const useYtProxy = ytDomains.has(host) || ytDomainsWithDotPrefix.some(domainWithDotPrefix => host.endsWith(domainWithDotPrefix));
+
+  if (useYtProxy) {
+      return 'PROXY 192.168.0.252:8118; DIRECT';
   }
   
   return 'DIRECT';
